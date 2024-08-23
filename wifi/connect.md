@@ -1,5 +1,14 @@
 ## Connect to WiFi via command line
 
+## Brief:
+- `sudo raspi-config`
+- select **System Options**
+- select **Wireless LAN      Enter SSID and passphrase**
+- enter wifi SSID
+- enter wifi password
+- verify using command `iwconfig wlan0`
+- find the ip by using command `ifconfig`
+
 # step 1:
 
 ```bash
