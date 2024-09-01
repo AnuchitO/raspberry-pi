@@ -72,4 +72,6 @@ ssh pi@ssh.example.com
 cloudflared --config /etc/cloudflared/config.yml service install
 ```
 
-
+```/home/pi/.cloudflared/<Tunnel-UUID>.json
+{"AccountTag":"accountID","TunnelSecret":"secret tunnel token","TunnelID":"Tunnel-UUID"}
+```
