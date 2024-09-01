@@ -1,4 +1,5 @@
 
+
 ```bash
 mkdir cloudflare-ddns
 cd cloudflare-ddns
@@ -10,6 +11,7 @@ Go to Cloudflare.com
 
 go to your domain
 https://dash.cloudflare.com/profile/api-tokens
+```code
 auth_email=""                                       # The email used to login 'https://dash.cloudflare.com'
 auth_method="global"                                 # Set to "global" for Global API Key or "token" for Scoped API Token
 auth_key=""                                         # Your API Token or Global API Key
@@ -18,8 +20,11 @@ record_name=""                                      # Which record you want to b
 ttl=1                                               # Set the DNS TTL (seconds)  Time To Live (TTL) of the DNS record in seconds. Setting to 1 means 'automatic'. Value must be between 60 and 86400, with the minimum reduced to 30 for Enterprise zones.
 proxy="true"                                       # Set the proxy to true or false
 sitename=""                                         # Title of site "Example Site"
-
+```
 
 ```bash
 ./cf-ddns-update.sh
 ```
+
+
+config crontab to run ~/cloudflare-ddns/cf-ddns-update.sh
