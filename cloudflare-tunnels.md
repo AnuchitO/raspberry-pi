@@ -75,3 +75,8 @@ cloudflared --config /etc/cloudflared/config.yml service install
 ```/home/pi/.cloudflared/<Tunnel-UUID>.json
 {"AccountTag":"accountID","TunnelSecret":"secret tunnel token","TunnelID":"Tunnel-UUID"}
 ```
+
+start cloudflared tunnel on boot os
+```bash
+ systemctl enable cloudflared
+```
