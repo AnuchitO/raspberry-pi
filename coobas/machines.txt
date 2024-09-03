@@ -1,0 +1,6 @@
+XXX.XXX.XXX.XXX cooba-1.ashram.local cooba-1 10.200.0.0/24
+XXX.XXX.XXX.XXX cooba-2.ashram.local cooba-2 
+XXX.XXX.XXX.XXX cooba-3.ashram.local cooba-3
+XXX.XXX.XXX.XXX cooba-4.ashram.local cooba-4
+XXX.XXX.XXX.XXX cooba-5.ashram.local cooba-5
+XXX.XXX.XXX.XXX cooba-6.ashram.local cooba-6
