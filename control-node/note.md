@@ -1,0 +1,1 @@
+- install `sudo apt install -y git`
