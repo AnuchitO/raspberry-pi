@@ -21,3 +21,10 @@ wget -O- \ "https://keyserver.ubuntu.com/pks/lookup?fingerprint=on&op=get&search
 echo "deb [signed-by=/usr/share/keyrings/ansible-archive-keyring.gpg] http://ppa.launchpad.net/ansible/ansible/ubuntu $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/ansible.list \
 sudo apt update && sudo apt install ansible
 ```
+
+## pre-requisist
+
+- add ssh-key from control node into all nodes
+- [] enable PasswordAuthentication yes then systemctl restart sshd
+- [] ssh-copy-id pi@cooba-1
+- `ansible all -i inventory.yml -m ping`
