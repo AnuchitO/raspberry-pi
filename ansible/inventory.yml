@@ -1,20 +1,8 @@
 ashram:
   hosts:
-    cooba_1:
-      ansible_host: cooba-1.ashram.local
-      ansible_user: root
-    cooba_2:
-      ansible_host: cooba-2.ashram.local
-      ansible_user: root
-    cooba_3:
-      ansible_host: cooba-3.ashram.local
-      ansible_user: root
-    cooba_4:
-      ansible_host: cooba-4.ashram.local
-      ansible_user: root
-    cooba_5:
-      ansible_host: cooba-5.ashram.local
-      ansible_user: root
-    cooba_6:
-      ansible_host: cooba-6.ashram.local
-      ansible_user: root
+    cooba-1.ashram.local:
+    cooba-2.ashram.local:
+    cooba-3.ashram.local:
+    cooba-4.ashram.local:
+    cooba-5.ashram.local:
+    cooba-6.ashram.local:
