@@ -28,3 +28,9 @@ sudo apt update && sudo apt install ansible
 - [] enable PasswordAuthentication yes then systemctl restart sshd
 - [] ssh-copy-id pi@cooba-1
 - `ansible all -i inventory.yml -m ping`
+
+
+location Debian wifi connection
+```sh
+/etc/NetworkManager/system-connections
+```
