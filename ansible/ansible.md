@@ -29,8 +29,51 @@ sudo apt update && sudo apt install ansible
 - [] ssh-copy-id pi@cooba-1
 - `ansible all -i inventory.yml -m ping`
 
-
 location Debian wifi connection
+
 ```sh
 /etc/NetworkManager/system-connections
 ```
+
+`ansible-playbook -i inventory.yml playbook.yml`
+
+`for i in {1..254}; do nslookup 192.168.0.$i >> names.txt; done`
+`for i in {1..254}; do ping -c 1 192.168.0.$i; done`
+
+## steps setup
+
+### mac to shifu
+
+1. ssh to shifu then config tunnel `cloudflared`
+
+### macair to all cooba
+
+1. [No need] setup root password for all cooba and shifu # no need because sudo su without password working on pi
+1. [Manual Once] enable shifu and all cooba by copy cooba/.ssh/authorized_keys to ~/.ssh/authorized_keys this file contain macair and shifu public key
+1. `scp
+
+1. copy public key from shifu to all cooba
+
+
+### scan all ip
+
+```bash
+ nmap -v -sn 192.168.1.0/24 \
+ | grep -vE "Starting|Scanning|Initiating|Completed|Host is up|host down|Nmap done" \
+ | awk '{print $5}' | xargs -n1 nmap -p 22
+```
+
+note: nmap scan is faster than ping scan that me I can make steps faster by
+1. use nmap to scan all ip in subnet
+1. arp -a to get all ip in subnet
+1. filter ip that is up
+1. ssh to check hostname
+
+
+```bash
+while read IP FQDN HOST SUBNET; do
+  ssh-copy-id pi@${IP}
+done < machines.txt
+```
+
+1. copy `~/.ssh/authorized_keys` into `/root/.ssh/authorized_keys` in each cooba pi
