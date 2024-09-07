@@ -1,0 +1,10 @@
+- name: List Installed Packages
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Create a file with package list
+      file:
+        path: /tmp/package_list.txt
+        state: touch
+        content: "{{ ansible_facts.packages }}"
