@@ -1,3 +1,3 @@
 .PHONY: ansible-playbook
 ansible-playbook:
-	@ansible-playbook -i inventory.yml playbook.yml
+	ansible-playbook -i inventory.yml playbook.yml
