@@ -45,6 +45,12 @@ location Debian wifi connection
 ### mac to shifu
 
 1. ssh to shifu then config tunnel `cloudflared`
+1. install `sudo apt install -y nmap`
+1. install `sudo apt install -y git`
+1. install `sudo apt install -y vim`
+
+
+/etc/NetworkManager/system-connections
 
 ### macair to all cooba
 
@@ -55,13 +61,15 @@ location Debian wifi connection
 1. copy public key from shifu to all cooba
 
 
-### scan all ip
+### scan all ip for discover machine in network
 
 ```bash
  nmap -v -sn 192.168.1.0/24 \
  | grep -vE "Starting|Scanning|Initiating|Completed|Host is up|host down|Nmap done" \
  | awk '{print $5}' | xargs -n1 nmap -p 22
 ```
+1. using nmap and arp to scan all ip in subnet look at [control node scan ip](../control-node/scan-ip-device-in-network.sh)
+
 
 note: nmap scan is faster than ping scan that me I can make steps faster by
 1. use nmap to scan all ip in subnet
