@@ -1,8 +1,8 @@
 ashram:
   hosts:
     cooba-1:
-    # cooba-2.ashram.local:
-    # cooba-3.ashram.local:
-    # cooba-4.ashram.local:
-    # cooba-5.ashram.local:
-    # cooba-6.ashram.local:
+    cooba-2:
+    cooba-3:
+    cooba-4:
+    cooba-5:
+    cooba-6:
