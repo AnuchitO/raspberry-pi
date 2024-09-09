@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-service-local-deployment
+spec:
+  selector:
+    matchLabels:
+      app: api.service.local
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: api.service.local
+    spec:
+      containers:
+      - name: httpbin
+        image: anuchito/simple-service:v0.0.1
+        env:
+        - name: PORT
+          value: "80"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: api.service.local
+  ports:
+    - protocol: TCP
+      port: 80
