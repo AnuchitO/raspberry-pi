@@ -28,7 +28,7 @@ vcgencmd get_throttled
 ```
 [CPU Throttled](https://www.raspberrypi.com/documentation/computers/os.html#get_throttled)
 
-will give us important information on throttling status, which is a direct consequence of an Undervoltage issue. 
+will give us important information on throttling status, which is a direct consequence of an Undervoltage issue.
 The command will return us a value that summarizes both the current and historical status (from the last boot). Possible results are:
 
 throttled=**0x0** -> this means a clean status, where voltage is ok
@@ -42,3 +42,8 @@ The value near the “throttled=0x” string shown is the sum of the Hex Values 
 1000 (Under-voltage has occurred)
 4000 (Throttling has occurred)
 ```
+
+
+
+OFF the Raspberry Pi 5's power consumption
+https://www.jeffgeerling.com/blog/2023/reducing-raspberry-pi-5s-power-consumption-140x

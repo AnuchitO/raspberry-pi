@@ -1,4 +1,4 @@
-# Cloudflrae Tunnesls 
+# Cloudflrae Tunnesls
 
 allow to access local network without require public IP
 
@@ -28,7 +28,7 @@ Type(Required)
 
 `SSH://` URL(Required) `localhost:22`
 
-on raspberry pi 
+on raspberry pi
 `cloudflared tunnel --hostname ashram.anuchito.com --url ssh://localhost:22`
 
 
@@ -38,7 +38,7 @@ on client machine
 สำเร็จ
 
 
-คราวนี้มาตั้งค่าให้ cloudflared tunnel รันอัตโนมัติ ตอนเปิดเครื่อง 
+คราวนี้มาตั้งค่าให้ cloudflared tunnel รันอัตโนมัติ ตอนเปิดเครื่อง
 [Configure cloudflared as a service](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/configure-tunnels/local-management/as-a-service/linux/#1-configure-cloudflared-as-a-service)
 
 ```/home/pi/.cloudflared/config.yml
@@ -47,7 +47,7 @@ tunnel: <Tunnel-UUID>
 credentials-file: /home/pi/.cloudflared/<Tunnel-UUID>.json
 ```
 
-check status tunnel 
+check status tunnel
 ```bash
 cloudflared tunnel info ssh
 ```
@@ -79,4 +79,33 @@ cloudflared --config /etc/cloudflared/config.yml service install
 start cloudflared tunnel on boot os
 ```bash
  systemctl enable cloudflared
+```
+
+
+
+# add CNAME to tunnel cloudflare
+# it will create a DNS record for the tunnel with the specified hostname
+
+<TUNNEL ID> เช่น 969b0491-d9xxx-xxxx-xxxx-xxxxxx
+```bash
+ cloudflared tunnel route dns <TUNNEL ID> web.example.com
+```
+สามารถดูผลลัพธ์ได้ที่ cloudflare dashboard ในหน้า dns/records จะเห็น CNAME ของ web.example.com ชี้ไปที่ tunnel ที่สร้างไว้
+
+# after update config.yml ingress
+
+```bash
+cloudflared tunnel ingress validate
+```
+Validating rules from /home/pi/.cloudflared/config.yml
+OK
+
+# check tunnel ingress rule
+```bash
+cloudflared tunnel ingress rule https://web.anuchito.com
+```
+
+# need to replace the /etc/cloudflared/config.yml with the new one
+```bash
+sudo cp /home/pi/.cloudflared/config.yml /etc/cloudflared/config.yml
 ```
