@@ -7,6 +7,10 @@
     ansible_user: "{{ lookup('env', 'USER') }}"
 
   tasks:
+    - name: Print the ansible_user variable
+      debug:
+        var: ansible_user
+
     - name: Install Nmap
       apt:
         name: nmap
