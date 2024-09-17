@@ -3,8 +3,22 @@
   gather_facts: true
 
   tasks:
-    - name: Create a file with package list
-      file:
-        path: /tmp/package_list.txt
-        state: touch
-        content: "{{ ansible_facts.packages }}"
+    - name: Install Nmap
+      apt:
+        name: nmap
+        state: present
+
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+
+    - name: Install Vim
+      apt:
+        name: vim
+        state: present
+
+    - name: Install Docker Engine
+      apt:
+        name: docker.io
+        state: present
