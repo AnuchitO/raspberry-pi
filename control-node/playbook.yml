@@ -1,5 +1,6 @@
 - name: List Installed Packages
   hosts: localhost
+  become: true
   gather_facts: true
 
   tasks:
@@ -19,11 +20,10 @@
         state: present
 
     - name: Install Docker Engine
-      become: true
       apt:
         name: docker.io
         state: present
-        
+
     - name: Add user to docker group
       group:
         name: docker
