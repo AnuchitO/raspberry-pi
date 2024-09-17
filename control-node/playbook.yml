@@ -22,11 +22,6 @@
         name: vim
         state: present
 
-    - name: Install Docker Engine
-      apt:
-        name: docker.io
-        state: present
-
     - name: Add user to docker group
       user:
         name: "{{ ansible_user }}"
@@ -38,3 +33,8 @@
         name: root
         groups: docker
         append: yes
+
+    - name: Install Docker Engine
+      apt:
+        name: docker.io
+        state: present
