@@ -40,4 +40,4 @@
     - name: Install Docker Engine
       apt:
         name: docker.io
-        state: present
+        state: absent
