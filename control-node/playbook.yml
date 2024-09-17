@@ -22,17 +22,16 @@
         name: vim
         state: present
 
-    - name: Add user to docker group
-      user:
+    - name: Add Docker group
+      ansible.builtin.group:
+        name: docker
+        state: present
+
+    - name: Add user to Docker group
+      ansible.builtin.user:
         name: "{{ ansible_user }}"
         groups: docker
-        append: yes
-
-    - name: Add root to docker group
-      user:
-        name: root
-        groups: docker
-        append: yes
+        append: true
 
     - name: Install Docker Engine
       apt:
