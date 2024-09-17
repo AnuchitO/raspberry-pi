@@ -28,7 +28,13 @@
         state: present
 
     - name: Add user to docker group
-      group:
-        name: docker
-        ensure: present
-        members: "{{ ansible_user }}"
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+
+    - name: Add root to docker group
+      user:
+        name: root
+        groups: docker
+        append: yes
