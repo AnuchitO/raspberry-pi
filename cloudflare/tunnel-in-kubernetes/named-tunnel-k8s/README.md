@@ -61,3 +61,11 @@ configmap/cloudflared configured
 7. Visit your hostname, you'll see the httpbin welcome page.
 
 We love to hear your feedback! Join a discussion with other community members at https://community.cloudflare.com/c/performance/argo-tunnel
+
+
+Exposing Kubernetes Apps to the Internet with Cloudflare Tunnel, Ingress Controller, and ExternalDNS
+https://itnext.io/exposing-kubernetes-apps-to-the-internet-with-cloudflare-tunnel-ingress-controller-and-e30307c0fcb0
+
+
+Cloudflare Tunnel as a Kubernetes Deployment / Ingress
+https://medium.com/@_jonas/cloudflare-tunnel-as-a-kubernetes-deployment-ingress-9f943cd442a6
