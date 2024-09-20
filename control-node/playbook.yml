@@ -33,7 +33,7 @@
 
     - name: Add user to Docker group
       ansible.builtin.user:
-        name: "{{ ansible_user }}"
+        name: '{{ ansible_user }}'
         groups: docker
         append: true
 
@@ -41,3 +41,8 @@
       apt:
         name: docker.io
         state: absent
+
+    - name: Install UFW
+      apt:
+        name: ufw
+        state: present
