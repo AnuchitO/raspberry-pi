@@ -99,3 +99,5 @@ sudo userdel -r tempUsername
 ```
 
 
+**NOTE**
+ Crontab jobs will not be run for users whose accounts have been renamed either due to changes in the local system or because they are managed through  a central user database (external to the system, for example an LDAP directory).
