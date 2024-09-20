@@ -101,3 +101,6 @@ sudo userdel -r tempUsername
 
 **NOTE**
  Crontab jobs will not be run for users whose accounts have been renamed either due to changes in the local system or because they are managed through  a central user database (external to the system, for example an LDAP directory).
+
+ rename your crontab config file 
+`/var/spool/cron/crontabs/oldUsername` to `/var/spool/cron/crontabs/newUsername` then restart crontab `sudo systemctl restart cron`
