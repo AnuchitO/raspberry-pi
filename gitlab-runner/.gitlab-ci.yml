@@ -1,0 +1,14 @@
+build-frontend-dev-image:
+  image: gcr.io/kaniko-project/executor:v1.23.2-debug
+  stage: build
+  script: |
+    echo "Building the frontend image"
+    VERSION=$(cat frontend/VERSION)
+    echo "version:::${VERSION}"
+    IMAGE_NAME=$CI_REGISTRY_IMAGE/frontend:${VERSION}-dev
+    echo "image:"$IMAGE_NAME
+    /kaniko/executor \
+      --context ${CI_PROJECT_DIR}/frontend \
+      --dockerfile ${CI_PROJECT_DIR}/frontend/Dockerfile \
+      --destination ${IMAGE_NAME} \
+      --build-arg IS_DEV_MODE=true
