@@ -11,15 +11,14 @@ data:
       url = "https://gitlab.com/ci"
       token = "[TOKEN]"
       executor = "kubernetes"
+      unhealthy_requests_limit = 5
+      unhealthy_interval = '1800s'
       [runners.kubernetes]
         namespace = "gitlab-runner"
-        privileged = true
         poll_timeout = 600
         cpu_request = "1"
         service_cpu_request = "500m"
         image = "ruby:3.3"
         helper_image = "registry.gitlab.com/gitlab-org/gitlab-runner/gitlab-runner-helper:arm64-latest"
-        [[runners.kubernetes.volumes.host_path]]
-            name = "docker"
-            mount_path = "/var/run/docker.sock"
-            host_path = "/var/run/docker.sock"
+    [session_server]
+      session_timeout = 1800
